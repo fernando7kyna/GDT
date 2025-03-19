@@ -1,59 +1,75 @@
-# GerenciadorTarefas
+# 📝 Gerenciador de Tarefas
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.7.
+![GitHub last commit](https://img.shields.io/github/last-commit/fernandolimadev17/gerenciador-tarefas)
+![GitHub repo size](https://img.shields.io/github/repo-size/fernandolimadev17/gerenciador-tarefas)
+![GitHub stars](https://img.shields.io/github/stars/fernandolimadev17/gerenciador-tarefas?style=social)
 
-## Development server
+### 🚀 **Sobre o projeto**
+O **Gerenciador de Tarefas** é uma aplicação web desenvolvida em **Angular** e **Node.js**, utilizando **MongoDB** como banco de dados.  
+Ele permite que os usuários gerenciem suas tarefas diárias, oferecendo funcionalidades como **criação, edição, exclusão e organização de tarefas**.  
 
-To start a local development server, run:
+🔹 **Front-end:** Angular + SCSS  
+🔹 **Back-end:** Node.js + Express + Mongoose  
+🔹 **Banco de Dados:** MongoDB  
+🔹 **Deploy:** Em breve...
 
-```bash
-ng serve
-```
+---
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## 🎯 **Funcionalidades**
+✅ Criar, editar e excluir tarefas 📌  
+✅ Definir prioridades para as tarefas 🚀  
+✅ Interface intuitiva e responsiva 🎨  
+✅ Persistência de dados via MongoDB 🔗  
 
-## Code scaffolding
+---
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## 🛠️ **Tecnologias Utilizadas**
+### 🔹 **Frontend**
+- Angular 17
+- HTML5, SCSS
+- **Ngx-Toastr** para notificações
 
-```bash
-ng generate component component-name
-```
+### 🔹 **Backend**
+- Node.js + Express
+- Mongoose (ODM para MongoDB)
+- Cors e Dotenv para segurança
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+### 🔹 **Banco de Dados**
+- MongoDB com Mongoose
 
-```bash
-ng generate --help
-```
+---
 
-## Building
+## 🏗️ **Como Rodar o Projeto**
+### 🚀 **Pré-requisitos**
+Antes de iniciar, certifique-se de ter instalado:  
+✅ [Node.js](https://nodejs.org/)  
+✅ [Angular CLI](https://angular.io/)  
+✅ [MongoDB](https://www.mongodb.com/)  
 
-To build the project run:
+### ⚙ **Passos para rodar localmente**
+1. **Clone o repositório**
+   ```bash
+   git clone https://github.com/fernandolimadev17/gerenciador-tarefas.git
+   cd gerenciador-tarefas
 
-```bash
-ng build
-```
+   📂 Estrutura do Projeto
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+   gerenciador-tarefas
+ ├── /src
+ │   ├── /app                # Código-fonte principal
+ │   ├── /assets             # Recursos estáticos
+ │   ├── /environments       # Configurações de ambiente
+ │   ├── main.ts             # Ponto de entrada Angular
+ │   ├── styles.scss         # Estilos globais
+ │   └── index.html          # Template principal
+ ├── /backend                # Código do servidor Node.js
+ ├── angular.json            # Configuração Angular CLI
+ ├── package.json            # Dependências do projeto
+ ├── tsconfig.json           # Configuração TypeScript
+ ├── README.md               # Documentação do projeto
 
-## Running unit tests
+ 📞 Contato
+📧 E-mail: fernandolimadev17@gmail.com
+🔗 LinkedIn:  (linkedin.com/in/fernandolima-dev) 
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+🚀 Desenvolvido por Fernando Lima
