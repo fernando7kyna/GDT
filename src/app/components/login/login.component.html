@@ -1,0 +1,53 @@
+<div class="login-container">
+  <div class="login-card">
+    <div class="login-header">
+      <h1>CAPITAL UNIFORMES</h1>
+      <p>Gestão de Demandas</p>
+    </div>
+
+    <form (ngSubmit)="onLogin()" #loginForm="ngForm">
+      <div class="form-group">
+        <label for="username">Usuário</label>
+        <div class="input-group">
+          <i class="fas fa-user"></i>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            [(ngModel)]="username"
+            required
+            placeholder="Digite seu usuário"
+          >
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Senha</label>
+        <div class="input-group">
+          <i class="fas fa-lock"></i>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            [(ngModel)]="password"
+            required
+            placeholder="Digite sua senha"
+          >
+        </div>
+      </div>
+
+      <button type="submit" [disabled]="!loginForm.valid" class="btn-login">
+        <i class="fas fa-sign-in-alt"></i>
+        Entrar
+      </button>
+    </form>
+
+    <div class="register-section">
+      <p>Não tem uma conta?</p>
+      <button (click)="onRegister()" class="btn-register">
+        <i class="fas fa-user-plus"></i>
+        Criar Conta
+      </button>
+    </div>
+  </div>
+</div>

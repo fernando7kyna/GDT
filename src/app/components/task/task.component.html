@@ -1,0 +1,132 @@
+<div class="task-container">
+  <div class="task-header">
+    <div class="header-content">
+      <h1>Gerenciador de Tarefas</h1>
+      <div class="company-brand">
+        <span class="company-name">CAPITAL UNIFORMES</span>
+        <span class="company-divider">|</span>
+        <span class="company-subtitle">Gestão de Demandas</span>
+      </div>
+    </div>
+    <div class="user-info">
+      <span class="username">
+        <i class="fas fa-user"></i>
+        {{ username }}
+      </span>
+      <span class="user-local">
+        <i class="fas fa-building"></i>
+        {{ userLocal }}
+      </span>
+      <button class="btn-logout" (click)="logout()">
+        <i class="fas fa-sign-out-alt"></i>
+        Sair
+      </button>
+    </div>
+  </div>
+
+  <div class="task-form-card">
+    <h2>{{ editingTask ? 'Editar Tarefa' : 'Nova Tarefa' }}</h2>
+    <form (submit)="addOrUpdateTask(); $event.preventDefault()">
+      <div class="form-group">
+        <label>Título <span class="required">*</span></label>
+        <input type="text" [(ngModel)]="titulo" name="titulo" required placeholder="Digite o título da tarefa" />
+      </div>
+
+      <div class="form-group">
+        <label>Descrição <span class="required">*</span></label>
+        <textarea [(ngModel)]="descricao" name="descricao" required placeholder="Descreva os detalhes da tarefa"></textarea>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Categoria <span class="required">*</span></label>
+          <input type="text" [(ngModel)]="categoria" name="categoria" required placeholder="Ex: Trabalho, Pessoal" />
+        </div>
+
+        <div class="form-group">
+          <label>Status</label>
+          <select [(ngModel)]="status" name="status">
+            <option value="Pendente">Pendente</option>
+            <option value="Em Andamento">Em Andamento</option>
+            <option value="Concluído">Concluído</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Prioridade</label>
+          <select [(ngModel)]="prioridade" name="prioridade">
+            <option value="Baixa">Baixa</option>
+            <option value="Média">Média</option>
+            <option value="Alta">Alta</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" class="btn-primary">
+          <i class="fas fa-{{ editingTask ? 'save' : 'plus' }}"></i>
+          {{ editingTask ? 'Salvar Alterações' : 'Adicionar Tarefa' }}
+        </button>
+        <button *ngIf="editingTask" type="button" class="btn-secondary" (click)="clearForm()">
+          <i class="fas fa-times"></i>
+          Cancelar
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <div class="task-filters-card">
+    <h2>Filtros e Ordenação</h2>
+    <div class="filters-container">
+      <div class="form-group">
+        <label>Filtrar por Categoria</label>
+        <input type="text" [(ngModel)]="filterCategoria" name="filterCategoria" (input)="filterAndSortTasks()" placeholder="Digite para filtrar por categoria" />
+      </div>
+
+      <div class="form-group">
+        <label>Filtrar por Status</label>
+        <select [(ngModel)]="filterStatus" name="filterStatus" (change)="filterAndSortTasks()">
+          <option value="">Todos</option>
+          <option value="Pendente">Pendente</option>
+          <option value="Em Andamento">Em Andamento</option>
+          <option value="Concluído">Concluído</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Ordenar por</label>
+        <select [(ngModel)]="sortOption" name="sortOption" (change)="filterAndSortTasks()">
+          <option value="">Nenhum</option>
+          <option value="data">Data de Criação</option>
+          <option value="prioridade">Prioridade</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <div class="tasks-list-card">
+    <h2>Minhas Tarefas</h2>
+    <div class="tasks-grid">
+      <div *ngFor="let task of filteredTasks" class="task-card" [ngClass]="task.status.toLowerCase().replace(' ', '-')">
+        <div class="task-card-header">
+          <span class="task-category">{{task.categoria}}</span>
+          <div class="task-info">
+            <span class="task-status">{{task.status}}</span>
+            <span class="task-priority" [ngClass]="task.prioridade.toLowerCase()">{{task.prioridade}}</span>
+          </div>
+        </div>
+        <h3>{{task.titulo}}</h3>
+        <p>{{task.descricao}}</p>
+        <small class="task-date">Criado em: {{task.dataCriacao | date:'short'}}</small>
+        <div class="task-card-actions">
+          <button class="btn-icon" (click)="editTask(task)" title="Editar tarefa">
+            <i class="fas fa-edit"></i>
+          </button>
+          <button class="btn-icon" (click)="deleteTask(task._id!)" title="Excluir tarefa">
+            <i class="fas fa-trash"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
